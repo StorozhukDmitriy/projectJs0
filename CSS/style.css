@@ -59,7 +59,7 @@ input::placeholder {
   border-radius: 4px;
   padding: 24px;
   max-width: 1152px;
-  height: 228px;
+  min-height: 228px;
   box-shadow: 0 8px 12px 0 rgba(11, 12, 13, 0.08),
     0 16px 24px 0 rgba(11, 12, 13, 0.04), 0 1px 2px 0 rgba(11, 12, 13, 0.08);
   background: #fff;
@@ -88,8 +88,9 @@ input::placeholder {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  width: 1104px;
+  max-width: 1104px;
   height: 108px;
+  gap: 24px;
 }
 .notes-info-input {
   text-align: start;
@@ -238,18 +239,23 @@ input::placeholder {
   display: flex;
   justify-content: end;
   margin: 0 auto;
-  width: 1152px;
+  max-width: 1152px;
+  display: none;
+  margin-bottom: 12px;
 }
-
+.check {
+  cursor: pointer;
+}
+.checkView {
+  display: flex;
+}
 .messages-box {
   display: flex;
   flex-direction: column;
   justify-content: end;
   align-items: flex-end;
   margin-top: 84px;
-}
-.check {
-  cursor: pointer;
+  margin-right: 60px;
 }
 
 .delete-button {
@@ -275,12 +281,9 @@ input::placeholder {
 }
 .heart-button:hover {
   scale: 1.1;
-  background-image: url("/img/heart\ active.png")
+  background-image: url("/img/heart\ active.png");
 }
-.heart-button:active{
-  background-image: url("/img/heart\ active.png")
-}
-.active{
+.heart-button:active {
   background-image: url("/img/heart\ active.png");
 }
 
@@ -318,7 +321,7 @@ input::placeholder {
   width: 230px;
   height: 48px;
   box-shadow: 0 8px 12px 0 rgba(11, 12, 13, 0.08),
-  0 16px 24px 0 rgba(11, 12, 13, 0.04), 0 1px 2px 0 rgba(11, 12, 13, 0.08);
+    0 16px 24px 0 rgba(11, 12, 13, 0.04), 0 1px 2px 0 rgba(11, 12, 13, 0.08);
   background: #47b27d;
 }
 .alert-message-text {
@@ -335,7 +338,7 @@ input::placeholder {
   border-radius: 10px;
   padding: 12px;
   box-shadow: 0 8px 12px 0 rgba(11, 12, 13, 0.08),
-  0 16px 24px 0 rgba(11, 12, 13, 0.04), 0 1px 2px 0 rgba(11, 12, 13, 0.08);
+    0 16px 24px 0 rgba(11, 12, 13, 0.04), 0 1px 2px 0 rgba(11, 12, 13, 0.08);
   background: #f23d5b;
 }
 
@@ -348,4 +351,23 @@ input::placeholder {
 }
 .clear-base-info {
   display: none;
+}
+.active {
+  background-image: url("/img/heart\ active.png");
+}
+
+@media screen and (max-width: 1140px) {
+  .notes-info {
+    flex-direction: column;
+    align-items: start;
+  }
+  .notes-info-input {
+    width: 344px;
+  }
+  .note-form {
+    height: 345px;
+  }
+  .base-info {
+    margin-top: 20px;
+  }
 }

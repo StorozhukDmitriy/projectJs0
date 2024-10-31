@@ -72,18 +72,8 @@ const view = {
         controller.favotitesNote(noteId);
         const heart = document.getElementById(noteId);
         console.log(heart.querySelector("#button"));
-        heart.querySelector("#button").classList.togle("active");
-        // heart.querySelector("#button").classList.remove("active");
-        // const heartBut = heart.classList.contains("heart-button");
-        // console.log(heartBut);
-
-        // event.target.classList.add("active");
-        // console.log(event.target);
-
-        // const heart = document.getElementById("noteId")
-        // heart.classList.add("active")
-        // const heartButton = document.querySelector("#button");
-        // heartButton.classList.add("active");
+        // heart.querySelector("#button").classList.add("active");
+        heart.querySelector("#button").classList.add("active");
       }
     });
     const checkbox = document.querySelector("input[id=box]");
@@ -98,8 +88,10 @@ const view = {
   renderNotes(notes) {
     const list = document.querySelector(".notes-list");
     let notesHtml = "";
+    let checkHtml = "";
     for (let i = 0; i < notes.length; i++) {
       const baseInfo = document.querySelector(".base-info");
+      const check = document.querySelector(".filter-box");
       const note = notes[i];
       notesHtml += `
         <li>
@@ -112,6 +104,7 @@ const view = {
         </li>
       `;
       baseInfo.classList.add("clear-base-info");
+      check.classList.add("checkView");
     }
     list.innerHTML = notesHtml;
   },
@@ -153,20 +146,10 @@ const controller = {
       view.alertMessage("Максимальная длина заголовка - 50 символов");
     } else if (content === "" && title === "") {
       view.alertMessage("Заполните все поля");
-      return;
     } else {
       view.showMessage("Заметка добавлена");
       model.addNote(title, content, color);
     }
-
-    // здесь можно добавить валидацию полей
-    // your code
-
-    // вызываем метод модели
-
-    // вызываем метод view, реализацию которого вам нужно будет добавить
-
-    // setTimeout( function() { view.showMessage().value.innerHTML = "" } , 3000)
   },
   deleteNote(noteId) {
     console.log(noteId);
